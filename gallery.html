@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Art Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation section start here -->
+    <header class="navigator">
+        <div class="logoContent">
+            <a href="index.html" class="logo"><img src="img/artlogo.JPG" alt=""></a>
+        </div>
+        <button class="hamburger">&#9776;</button> <!-- Hamburger menu button -->
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Art Gallery</a>
+            <a href="aboutus.html">About Me</a>
+        </nav>
+    </header>
+    <!-- Navigation section end here -->
+
+    <!-- Gallery section start here -->
+    <section class="galcontainer">
+        <h3 class="galname">ART <span>GALLERY</span></h3>
+        <div class="gallery-images" id="gallery-container">
+            <!-- Images will be dynamically inserted here -->
+        </div>
+    </section>
+    <!-- Gallery section ends here -->
+
+    <!-- Lightbox section start here -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption" class="lightbox-caption"></div> <!-- Caption element -->
+    </div>
+    <!-- Lightbox section ends here -->
+
+    <!-- Footer section start here -->
+    <footer class="footer" id="contact">
+        <div class="box-container">
+            <div class="mainBox">
+                <div class="content">
+                    <a href="index.html"><img src="img/artlogo.JPG" alt="Art Logo"></a>
+                </div>
+                <h1>Artsy</h1>
+            </div>
+            <div class="box">
+                <h3>Quick link</h3>
+                <a href="index.html"> <i class="fas fa-arrow-right"></i>Home</a>
+                <a href="gallery.html"> <i class="fas fa-arrow-right"></i>Art Gallery</a>
+                <a href="aboutus.html"> <i class="fas fa-arrow-right"></i>About Me</a>
+            </div>
+            
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="mailto:doyatunde14@gmail.com"> 
+                    <i class="fas fa-envelope"></i> Email 
+                </a>
+                <a href="https://www.linkedin.com/in/davidoyatunde" target="_blank"> 
+                    <i class="fab fa-linkedin"></i> LinkedIn 
+                </a>
+            </div>
+        </div>
+        <div class="credit">
+            Created by <span>Mr Dave</span> | all rights reserved
+        </div>
+    </footer>
+    <!-- Footer ends here -->
+
+    <!-- JavaScript to dynamically insert images and implement lightbox -->
+    <script src="script.js"></script>
+</body>
+</html>

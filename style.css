@@ -1,0 +1,711 @@
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&family=Dancing+Script:wght@700&family=Fira+Sans:wght@500&family=Rubik+Glitch&display=swap');
+
+*{
+    font-family: 'Fira Sans', sans-serif;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .1s linear;
+}
+
+html{
+    font-size: 62.5%;   
+    scroll-padding-top: 1rem;
+    scroll-behavior: smooth;
+    background-color: #fff;
+}
+
+
+/* Navigation bar Styling starts here*/
+.navigator {
+    top: 0;
+    right: 0;
+    left: 0;
+    font-family: 'Anton', sans-serif;
+    background-color: rgba(78,57,0,255); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1.4rem 7%;
+    z-index: 999;
+}
+
+.navigator .logoContent {
+    display: flex;
+    align-items: center;
+}
+
+.navigator .logoContent .logo img {
+    height: 6rem;   
+    width: 60px;
+}
+
+.navigator .navbar {
+    display: flex;
+}
+
+.navigator .navbar a {
+    font-size: 2rem;
+    margin-right: 3rem;
+    color: white;
+    font-weight: bold;
+}
+
+.navigator .navbar a:hover {
+    border-bottom: .2rem solid white;
+    padding-bottom: .5rem;
+}
+
+/* Hide the hamburger menu by default */
+.hamburger {
+    display: none;
+}
+
+/* Responsive Design for Navbar */
+@media (max-width: 768px) {
+    .navigator {
+        padding: 1rem 5%;
+    }
+
+    .navigator .navbar {
+        display: none; /* Hide the navbar links initially on smaller screens */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(78,57,0,255);
+    }
+
+    .navigator .navbar a {
+        margin-right: 0;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navigator .navbar.active {
+        display: flex; /* Display navbar links when active class is added */
+    }
+
+    /* Show the hamburger menu only on smaller screens */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 7rem;
+        color: white;
+        background: none;
+        border: none;
+    }
+}
+
+/* Navigation bar Styling Ends here*/
+
+/* Home page section Styling starts here*/
+.main{
+    top: 0;
+    right: 0;
+    left: 0;
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    background-color: white;
+    background-position: inherit;
+    background-size: cover;
+}
+
+.homeContent{
+    max-width: 1000px;
+    margin: 100px 70px;
+}
+
+.homeContent .intro h2{
+    color: rgba(78,57,0,255); 
+    font-size: 55px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 60px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px white;
+}
+.homeContent .intro span{
+    color: rgb(160, 158, 158);
+    font-size: 55px ;
+    font-weight: 500;
+    text-shadow: 2px 2px rgb(23, 23, 23);
+    margin-bottom: 10rem;
+}
+
+.homeContent p{
+    font-size: 1.8rem;
+    line-height: 2;
+    margin-bottom: 4rem;
+}
+
+.homeContent .intro-btn{
+    height: 3rem;
+}
+
+.homeContent .intro-btn .button{
+    color: white;
+    background-color: rgb(160, 158, 158);
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: .7rem 2.4rem;
+    border-radius: 10px;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.homeContent .intro-btn .button:hover{
+    background: rgb(113, 95, 71); /* This will highlight the given color when the mouse touches the button*/
+}
+
+/* Home page section Styling Ends here*/
+
+/* Home page About section Styling starts here*/
+/* General container styling */
+.about-me-section {
+    padding: 2rem 5%;
+    font-family: 'Anton', sans-serif;
+    background-color: #f9f9f9;
+}
+
+.about-me-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    gap: 2rem;
+    flex-wrap: wrap;
+    background: #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+    max-width: 900px; /* Set a max-width to control the container width */
+    margin: 0 auto; /* Center the container horizontally */
+    height: 700px; /* Increase the height of the container */
+}
+
+/* Image container styling */
+.slideshow-container {
+    flex: 1 1 40%; /* Adjust width relative to the container */
+    position: relative;
+    overflow: hidden; /* Ensure no overflow for the slideshow */
+    height: 100%; /* Full height of the container */
+}
+
+/* Hide all slides by default */
+.slide {
+    display: none;
+    width: 100%; /* Ensure slides take up full container width */
+    height: 100%; /* Ensure slides take up full container height */
+}
+
+/* Style the images */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover the entire container */
+    border-radius: .5rem; /* Maintain existing border-radius */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); /* Maintain existing box-shadow */
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
+}
+
+/* Text container styling */
+.about-me-text {
+    flex: 1 1 50%; /* Adjust width relative to the container */
+    padding: 2rem;
+    font-size: 1rem;
+    color: #333;
+    height: 100%; /* Full height of the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    background-color: cornsilk;
+}
+
+.about-me-text h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.about-me-text p {
+    color: #666;
+    line-height: 3.6;
+    margin-bottom: 1rem;
+}
+
+/* Button styling */
+.about-me-text .btn {
+    display: inline-block;
+    padding: .5rem 1.5rem;
+    background-color: rgb(113, 95, 71);
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    transition: background 0.3s;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100px;
+}
+
+.about-me-text .btn:hover {
+    background: rgb(95, 95, 95);
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-me-container {
+        flex-direction: column;
+        max-width: 85%; /* Adjust for mobile screens */
+        height: auto; /* Allow height to adjust automatically */
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure images cover the entire container */
+        border-radius: .5rem; /* Maintain existing border-radius */
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1); /* Maintain existing box-shadow */
+    }
+
+    .slideshow-container {
+        height: 200px; /* Adjust height for mobile devices */
+    }
+
+    .about-me-text {
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+        height:100%;
+    }
+
+    .about-me-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-me-text p {
+        font-size: 0.9rem;
+    }
+
+    .about-me-text .btn {
+        font-size: 0.9rem;
+        margin-left: auto;  /* Center horizontally */
+        margin-right: auto; 
+    }
+}
+
+/* Home page About section Styling Ends here*/
+
+
+/*About us Styling section*/
+.about{
+    padding: 2rem 9% 100px;
+    font-family: 'Anton', sans-serif;
+}
+.abouthead h2{
+    text-align: center;
+    font-size: 4rem;
+    color:#333;
+    padding:1rem;
+    margin:2rem 0;
+    background:rgba(78, 83, 105, 0.05);
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    gap:2rem;
+    flex-wrap: wrap;
+    padding:2rem 0;
+    padding-bottom: 3rem;
+}
+
+.about .row .about-container{
+    flex:1 1 40rem;
+    position: relative;
+}
+
+.about .row .about-container img{
+    width:100%;
+    border:1.5rem solid #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    height: 100%;
+    object-fit: cover;
+}
+
+.about .row .about-container h3{
+    position: absolute;
+    top:50%; transform: translateY(-50%);
+    font-size: 3rem;
+    background:#fff;
+    width:100%;
+    padding:1rem 2rem;
+    text-align: center;
+    mix-blend-mode: screen;
+}
+
+.about .row .aboutcontent{
+    flex:1 1 40rem;
+}
+
+.about .row .aboutcontent h3{
+    font-size: 3rem;
+    color:#333;
+}
+
+.about .row .aboutcontent p{
+    font-size: 1.5rem;
+    color:#999;
+    padding:.5rem 0;
+    padding-top: 1rem;
+    line-height: 1.5;
+}
+
+.aboutcontent .about-btn{
+    height: 2rem;
+    padding-top: 20px;
+}
+
+.aboutcontent .about-btn .button{
+    color: white;
+    background-color:rgb(113, 95, 71);;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: .7rem 2.4rem;
+    border-radius: 10px;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.aboutcontent .about-btn .button:hover{
+    background: rgb(95, 95, 95); /* This will highlight the given color when the mouse touches the button*/
+}
+
+.about .row .about-container {
+    flex: 1 1 40rem;
+    position: relative;
+    overflow: hidden; /* Ensure no overflow for the slideshow */
+}
+/* About Me Ends here  */
+
+/* Gallery Page Styling Starts here  */
+.galcontainer{
+    max-width: 150%;
+    margin: 2px auto;
+    padding: 100px 10% 200px;
+  }
+  
+.galcontainer .galname{
+    font-size: 40px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: underline grey;
+    padding: 15px;
+}
+
+.galcontainer .galname h3{
+    color: black ;
+}
+
+.galcontainer .galname span{
+    color: rgb(113, 95, 71) ;
+}
+.galcontainer .gallery-images{
+    columns:3 250px;
+    gap:15px;
+}
+  
+.galcontainer .gallery-images img{
+    margin-bottom: 10px;
+    width: 100%;
+    /*height: 300px;*/
+}
+/* Gallery Page Styling Ends here */
+
+/* The About me page Styling Starts here */
+.about-section{
+    width: 100%
+}
+
+.about-section .about-container{
+    width: 80%;
+    display: block;
+    margin:0px auto;
+    padding: 50px 0px;
+}
+
+.about-container .abouttitle{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-container .abouttitle h2{
+    text-transform: uppercase;
+    font-size: 35px;
+    padding-top: 50px;
+    color: rgb(113, 95, 71) ;
+    text-decoration: underline gray;
+}
+
+.about-container{
+    width: 55%;
+}
+
+.about-container .about-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.about-image img{
+    width:100%;
+    height: auto;
+}
+
+.about-content .aboutarticle h3{
+    color: black;
+    font-size: 20px;
+}
+
+.about-content .aboutarticle h4{
+    margin-top: 20px;
+    color: black;
+    font-size: 20px;
+}
+
+.aboutwrd {
+    text-align: center; /* Centers the text horizontally */
+    margin-top: 20px; /* Adds space above the element */
+}
+
+.contact-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the images */
+    margin-top: 20px;
+}
+
+.contact-icon {
+    border:  rgb(113, 95, 71); /* Border color */
+    border-radius: 5px;
+    padding: 10px;
+    width: 120px; /* Fixed width */
+    height: 120px; /* Fixed height */
+    object-fit: cover; /* Ensures image covers the box while maintaining aspect ratio */
+    transition: transform 0.3s ease;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+/* The About me page Styling Ends here */
+
+.footer {
+    background-color: whitesmoke;
+    background-size: cover;
+    background-position: center center;
+}
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+}
+.footer .box-container .mainBox .content{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.footer .box-container .mainBox .content img{
+    width: 100px;
+    height: 90px;
+}
+
+.footer .box-container .mainBox .content h1{
+    font-size: 2rem;
+    color: black;
+
+}
+.footer .box-container .mainBox p{
+    font-size: 1.7rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+}
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    color: black;
+    padding: 1rem 0;
+}
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.6rem;
+    color: black;
+    padding: 1rem 0;
+}
+.footer .box-container .box a i{
+    padding-right: .5rem;
+    color: black;
+}
+.footer .box-container .box a:hover i{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    font-size: 2rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    color: black;
+    text-align: center;   
+}
+/* Footer and CSS Style Ends Here*/
+
+/* Lightbox styling */
+.lightbox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    padding-top: 90px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black with opacity */
+}
+
+.lightbox-content {
+    margin: auto;
+    margin-top: 40px;
+    display: block;
+    max-width: 80%; /* Limit the width of the image */
+    max-height: 87%; /* Limit the height of the image */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for a better visual effect */
+}
+
+/* Lightbox caption styling */
+.lightbox-caption {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.close {
+    position: absolute;
+    top: 55px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add animation (optional) */
+@keyframes zoom {
+    from { transform: scale(0); } 
+    to { transform: scale(1); }
+}
+
+.lightbox-content {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+/* media queries for web responsive */
+@media (max-width:991px){
+    html{
+        font-size: 40%;
+    }
+    .navigator{
+        padding: 1.3rem 1rem;
+    }
+    .main{
+        margin-top: -50px;
+    }
+    .main .homeContent{
+        max-width: 1000px;
+        margin-left: 100px;
+        padding-top: 0;
+        width: 80%;
+    }
+}
+@media (max-width:768px) {
+    .main{
+        margin-top: -100px;
+    }
+    .main .homeContent{
+        max-width: 1000px;
+        padding: 0;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: -700px;
+        margin-bottom: -700px;
+    }
+    .about-section{
+        font-size: 40%;
+    }
+}
+
+@media (max-width:600px){
+    html{
+        font-size: 30%;
+    }
+    .main .homeContent{
+        max-width: 1000px;
+        padding: 0;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: -700px;
+        margin-bottom: -700px;
+    }
+    .about-section{
+        font-size: 40%;
+    }
+}
